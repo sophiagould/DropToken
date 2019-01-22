@@ -54,6 +54,8 @@ class DropTokenGame:
 
         rows = ' '.join([self._get_board_at(i, row) for i in range(self.BOARD_DIMENSION)])
         cols = ' '.join(self.board[col])
+
+        # Traverse matrix diagonally by calculating an offset to the edge and walking forwards through row,col
         diag_up = ' '.join([self._get_board_at(col+i, row+i)
                             for i in range(-min(row, col), self.BOARD_DIMENSION - max(row, col))])
         diag_down = ' '.join([self._get_board_at(col + i, row - i)
